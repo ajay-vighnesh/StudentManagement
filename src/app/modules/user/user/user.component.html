@@ -1,0 +1,75 @@
+<form [formGroup]="crudForm">
+  <div>
+    <label for="rollno">Roll No</label>
+    <input type="text" placeholder="Roll No" formControlName="rollno">
+    <div *ngIf="crudForm.get('rollno')?.hasError('pattern')">
+      <p class="text-danger">Roll No is invalid</p>
+    </div>
+    <div *ngIf="crudForm.get('rollno')?.hasError('required') && crudForm.get('rollno')?.touched">
+      <p class="text-danger">Roll No is required</p>
+    </div>
+  </div>
+  <br>
+  <div>
+    <label for="studentname">Student Name</label>
+    <input type="text" placeholder="Student Name" formControlName="studentname">
+    <div *ngIf="crudForm.get('studentname')?.hasError('pattern')">
+      <p class="text-danger">Name must have alpha characters only</p>
+    </div>
+    <div *ngIf="crudForm.get('studentname')?.hasError('required') && crudForm.get('studentname')?.touched">
+      <p class="text-danger">Name is required</p>
+    </div>
+  </div>
+  <br>
+  <div>
+    <label for="classname">Class Name</label>
+    <input type="text" placeholder="Class Name" formControlName="classname">
+    <div *ngIf="crudForm.get('classname')?.hasError('pattern')">
+      <p class="text-danger">Class Name is invalid</p>
+    </div>
+    <div *ngIf="crudForm.get('classname')?.hasError('required') && crudForm.get('classname')?.touched">
+      <p class="text-danger">Class Name is required</p>
+    </div>
+  </div>
+  <br>
+  <input type="text" [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}">
+  <button (click)="search()">Search</button>
+  <button (click)="create()" *ngIf="!isEdit">Create</button>
+  <button *ngIf="isEdit" (click)="update()">Update</button>
+  <button (click)="cancel()" *ngIf="isEdit">Cancel</button>
+  <button (click)="clear()">Clear</button>
+</form>
+
+
+
+
+
+
+<hr>
+
+
+
+<table>
+  <tr>
+  <th class="header_color">Sl.No</th>
+  <th class="header_color">Roll No</th>
+  <th class="header_color">Student Name</th>
+  <th class="header_color">Class Name</th>
+
+  <th class="header_color">Action</th>
+</tr>
+<tr *ngFor="let data of tableName let i = index">
+  <td>{{ i+1 }}</td>
+  <td>{{ data.data.rollno}}</td>
+  <td>{{ data.data.studentname }}</td>
+  <td>{{ data.data.classname }}</td>
+  <td>
+    <div style="display: flex; align-items: center; gap: 10px;">
+    <img (click)="updateAction(data)" src="..//src/assets/edit-icon.png" alt="" width="20px" height="20px" style="cursor: pointer;">
+    <!-- <img (click)="delete(data._id,data._rev)" src="..//src/assets/delete-icon.png" alt="" width="30px" height="30px" style="cursor: pointer;"> -->
+    <img (click)="deletealert(data._id,data._rev)" src="..//src/assets/delete-icon.png" alt="" width="30px" height="30px" style="cursor: pointer;">
+    <img (click)="passParam(data)" src="..//src/assets/eye-icon.png" alt="" width="20px" height="20px" style="cursor: pointer;">
+    </div>
+  </td>
+</tr>
+</table>

@@ -1,0 +1,129 @@
+<p>task works!</p>
+
+
+<form [formGroup]="crudForm">
+
+  <div>
+  <label for="reviewerName">Task No</label>
+    <input type="text" placeholder="taskNo" formControlName="taskNo">
+    <div *ngIf="crudForm.get('taskNo')?.hasError('pattern')">
+      <p class="text-danger">Task No is invalid</p>
+    </div>
+    <div *ngIf="crudForm.get('taskNo')?.hasError('required') && crudForm.get('taskNo')?.touched">
+      <p class="text-danger">Task No is required</p>
+    </div>
+  </div>
+  <br>
+
+  <div>
+    <label for="reviewerName">Task Title</label>
+    <input type="text" placeholder="taskTitle" formControlName="taskTitle">
+    <div *ngIf="crudForm.get('taskTitle')?.hasError('pattern')">
+      <p class="text-danger">Task Title have alpha</p>
+    </div>
+    <div *ngIf="crudForm.get('taskTitle')?.hasError('required')  && crudForm.get('taskTitle')?.touched">
+      <p class="text-danger">Task Title is required</p>
+    </div>
+  </div>
+  <br>
+
+    <div>
+      <label for="reviewerName">Description</label>
+    <input type="text" placeholder="description" formControlName="description">
+    <div *ngIf="crudForm.get('description')?.hasError('pattern')">
+      <p class="text-danger">Description is invalid</p>
+    </div>
+    <div *ngIf="crudForm.get('description')?.hasError('required')  && crudForm.get('description')?.touched">
+      <p class="text-danger">Description is required</p>
+    </div>
+    </div>
+    <br>
+
+
+    <div>
+      <label for="developerName">Developer</label>
+    <select name="developerName" id="developerName" formControlName="developerName"> 
+      <option *ngFor="let names of developerName" [value]="names._id">{{names.data.userID}}</option>
+    </select>
+    </div>
+    <br>
+
+
+   
+
+    <div>
+      <label for="reviewerName">Dead Line</label>
+      <input type="date" formControlName="deadLine">
+    </div>
+    <br>
+
+    <div>
+      <label for="reviewerName">Name</label>
+        <input type="text" placeholder="name" formControlName="name">
+        <div *ngIf="crudForm.get('name')?.hasError('pattern')">
+          <p class="text-danger">Name is invalid</p>
+        </div>
+        <div *ngIf="crudForm.get('name')?.hasError('required') && crudForm.get('name')?.touched">
+          <p class="text-danger">Name is required</p>
+        </div>
+      </div>
+      <br>
+
+      <div>
+        <label for="reviewerName">Reviewer</label>
+      <select name="reviewerName" id="reviewerName" formControlName="reviewerName"> 
+        <option *ngFor="let name of reviewername" [value]="name._id">{{name.data.userID}}</option>
+      </select>
+      </div>
+      <br>
+
+
+
+    <input [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}">
+    <button (click)="search()">Search</button>
+   
+   
+  
+    <button (click)="create()" *ngIf="!isEdit">Create</button>
+    <button *ngIf="isEdit" (click)="update()">Update</button>
+    <button (click)="cancel()" *ngIf="isEdit">Cancel</button>
+    <button (click)="clear()">Clear</button>
+  </form>
+  
+  <hr>
+  
+  <table>
+    <tr>
+    <th class="header_color">Sl.No</th>
+    <th class="header_color">Task No</th>
+    <th class="header_color">Task Title</th>
+    <th class="header_color">Description</th>
+    <th class="header_color">Dead Line</th>
+
+    <th class="header_color">Developer</th>
+    <th class="header_color">Name</th>
+    <th class="header_color">Reviewer</th>
+    <!-- <th class="header_color">Active User</th> -->
+    <th class="header_color">Action</th>
+  </tr>
+  <tr *ngFor="let data of tableName1 ;let i = index">
+    <td>{{ i+1 }}</td>
+    <td>{{ data.data.taskNo}}</td>
+    <td>{{ data.data.taskTitle }}</td>
+    <td>{{ data.data.description }}</td>
+    <td>{{ data.data.deadLine }}</td>
+
+    <td>{{ data.data.developerName }}</td>
+    <td>{{ data.data.name }}</td>
+    <td>{{ data.data.reviewerName }}</td> 
+    <!-- <td>{{ data.doc.isActive }}</td> -->
+    <td>
+      <div style="display: flex; align-items: center; gap: 10px;">
+      <img (click)="updateAction(data)" src="..//src/assets/edit-icon.png" alt="" width="20px" height="20px" style="cursor: pointer;">
+      <!-- <img (click)="delete(data._id,data._rev)" src="..//src/assets/delete-icon.png" alt="" width="30px" height="30px" style="cursor: pointer;"> -->
+      <img (click)="deletealert(data._id,data._rev)" src="..//src/assets/delete-icon.png" alt="" width="30px" height="30px" style="cursor: pointer;">
+      <img (click)="passParam(data)" src="..//src/assets/eye-icon.png" alt="" width="20px" height="20px" style="cursor: pointer;">
+      </div> 
+    </td>
+  </tr>
+  </table>

@@ -1,0 +1,40 @@
+<h4>View data for Task</h4>
+
+<table>
+    <tr>
+    
+    <th>Task No</th>
+    <th>Task Title	</th>
+    <th>Description</th>
+    <th>Dead Line</th>
+    <th>Developer</th>
+    <th>Name</th>
+    <th>Reviewer</th>
+
+    
+  </tr>
+  <tr>
+   
+    <td> {{paramValue.data.taskNo}}</td>
+    <td>  {{paramValue.data.taskTitle}} </td>
+        <!-- <h1 style="color: green;" *ngIf="paramValue.data.isActive">Active</h1>
+        <h1 style="color: red;" *ngIf="!paramValue.data.isActive">Inactive</h1></td> -->
+    <td>  {{paramValue.data.description}}</td>
+    <td>  {{paramValue.data.deadLine}}</td>
+    <td>  {{paramValue.data.developerName}}</td>
+    <td>  {{paramValue.data.name}}</td>
+    <td>  {{paramValue.data.reviewerName}}</td>
+
+    <!-- <td>  {{paramValue.isActive}}</td> -->
+   
+  </tr>
+  </table>
+
+
+<button [routerLink]="['/task']">Back</button>
+
+<!-- <button [routerLink]="['/task/subtask/id']">Add Subtask</button> -->
+<button (click)="addSubTask(paramValue)">Add Subtask</button>
+
+
+

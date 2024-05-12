@@ -1,0 +1,82 @@
+<div style="display: flex; justify-content: space-between;">
+
+    <!-- <div style="cursor: pointer;">
+        <img (click)="plus()" src="..//src/assets/plus-icon.png" alt="" width="30px" height="30px">
+    </div> -->
+    </div>
+    <form [formGroup]="crudForm">
+    
+      <div>
+      <label for="teacher_id">Teacher ID</label>
+      <input type="text" placeholder="teacher_id" formControlName="teacher_id">
+      <div *ngIf="crudForm.get('teacher_id')?.hasError('pattern')">
+        <p class="text-danger">User ID is invalid</p>
+      </div>
+      <div *ngIf="crudForm.get('teacher_id')?.hasError('required') && crudForm.get('teacher_id')?.touched">
+        <p class="text-danger">User ID is required</p>
+      </div>
+    </div>
+    <br>
+    
+    <div>
+      <label for="teachername">Teacher Name</label>
+      <input type="text" placeholder="teachername" formControlName="teachername">
+      <div *ngIf="crudForm.get('teachername')?.hasError('pattern')">
+        <p class="text-danger">Name must have alpha</p>
+      </div>
+      <div *ngIf="crudForm.get('teachername')?.hasError('required')  && crudForm.get('teachername')?.touched">
+        <p class="text-danger">Name is required</p>
+      </div>
+    </div>
+    <br>
+    
+   
+    
+    <!-- <div>
+     <label>Active User</label>
+      <input type="checkbox" formControlName="isActive">
+    </div> -->
+    <br>
+    
+      <input type="text" [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}">
+      <button (click)="search()">Search</button>
+      
+    
+      <button (click)="create()" *ngIf="!isEdit">Create</button>
+      <button *ngIf="isEdit" (click)="update()">Update</button>
+      <button (click)="cancel()" *ngIf="isEdit">Cancel</button>
+      <button (click)="clear()">Clear</button>
+    </form>
+    
+    
+    
+    
+    
+    
+    <hr>
+    
+    
+    
+    <table>
+      <tr>
+      <th class="header_color">Sl.No</th>
+      <th class="header_color">Teacher_Id</th>
+      <th class="header_color">Teacher Name</th>
+     
+      <th class="header_color">Action</th>
+    </tr>
+    <tr *ngFor="let data of tableName let i = index">
+      <td>{{ i+1 }}</td>
+      <td>{{ data.data.teacher_id}}</td>
+      <td>{{ data.data.teachername }}</td>
+      <td>
+        <div style="display: flex; align-items: center; gap: 10px;">
+        <img (click)="updateAction(data)" src="..//src/assets/edit-icon.png" alt="" width="20px" height="20px" style="cursor: pointer;">
+        <!-- <img (click)="delete(data._id,data._rev)" src="..//src/assets/delete-icon.png" alt="" width="30px" height="30px" style="cursor: pointer;"> -->
+        <img (click)="deletealert(data._id,data._rev)" src="..//src/assets/delete-icon.png" alt="" width="30px" height="30px" style="cursor: pointer;">
+        <img (click)="passParam(data)" src="..//src/assets/eye-icon.png" alt="" width="20px" height="20px" style="cursor: pointer;">
+        </div>
+      </td>
+    </tr>
+    </table>
+    

@@ -1,0 +1,24 @@
+<h4>viewdata</h4>
+
+<table>
+    <tr>
+    
+    <th class="header_color">User ID</th>
+    <th class="header_color">Name</th>
+    <th class="header_color">Mail</th>
+    <th class="header_color">Active User</th>
+  </tr>
+  <tr>
+   
+    <td> {{paramValue.rollno}}</td>
+    <td>  {{paramValue.studentname}} </td>
+        <!-- <h1 style="color: green;" *ngIf="paramValue.isActive">Active</h1>
+        <h1 style="color: red;" *ngIf="!paramValue.isActive">Inactive</h1></td> -->
+    <td>  {{paramValue.classname}}</td>
+    <!-- <td>  {{paramValue.isActive}}</td> -->
+   
+  </tr>
+  </table>
+
+
+<button [routerLink]="['/user']">Back</button>

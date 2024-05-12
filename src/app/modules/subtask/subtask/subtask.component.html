@@ -1,0 +1,109 @@
+<p>subtask works!</p>
+
+<form [formGroup]="crudForm">
+
+
+<div>
+    <label for="subtaskNo">Subtask No</label>
+      <input type="text" placeholder="subtaskNo" formControlName="subtaskNo">
+      <div *ngIf="crudForm.get('subtaskNo')?.hasError('pattern')">
+        <p class="text-danger">Task No is invalid</p>
+      </div>
+      <div *ngIf="crudForm.get('subtaskNo')?.hasError('required') && crudForm.get('subtaskNo')?.touched">
+        <p class="text-danger">Task No is required</p>
+      </div>
+</div>
+    <br>
+
+    <div>
+    <label for="subtaskTitle">Subtask Title</label>
+      <input type="text" placeholder="subtaskTitle" formControlName="subtaskTitle">
+      <div *ngIf="crudForm.get('subtaskTitle')?.hasError('pattern')">
+        <p class="text-danger">Task No is invalid</p>
+      </div>
+      <div *ngIf="crudForm.get('subtaskTitle')?.hasError('required') && crudForm.get('subtaskTitle')?.touched">
+        <p class="text-danger">Task No is required</p>
+      </div>
+</div>
+    <br>
+
+    <div>
+        <label for="description">Description</label>
+          <input type="text" placeholder="description" formControlName="description">
+          <div *ngIf="crudForm.get('description')?.hasError('pattern')">
+            <p class="text-danger">Task No is invalid</p>
+          </div>
+          <div *ngIf="crudForm.get('description')?.hasError('required') && crudForm.get('description')?.touched">
+            <p class="text-danger">Task No is required</p>
+          </div>
+    </div>
+        <br>
+
+
+        <div>
+            <label for="startDate">Start Date</label>
+          <input type="date" formControlName="startDate">
+        </div>
+            <br>
+
+            <div>
+                <label for="endDate">End Date</label>
+                  <input type="date" formControlName="endDate">
+                 
+            </div>
+                <br>
+
+                <div>
+                    <label for="status">Status</label>
+                     <select name="status" id="status" formControlName="status">
+                     <option>Complete</option>
+                     <option>Cancel</option>
+
+                     </select>
+                </div>
+                    <br>
+
+                    <button (click)="create()" *ngIf="!isEdit">Create</button>
+                    <button *ngIf="isEdit" (click)="update()">Update</button>
+                    <button (click)="cancel()" *ngIf="isEdit">Cancel</button>
+                    <button (click)="clear()">Clear</button>
+                    <button [routerLink]="['/task']">Back</button>
+
+</form>
+
+
+<hr>
+  
+<table>
+  <tr>
+  <th class="header_color">Sl.No</th>
+  <th class="header_color">Subtask No</th>
+  <th class="header_color">Subtask Title</th>
+  <th class="header_color">Description</th>
+  <th class="header_color">Start Date</th>
+  <th class="header_color">End Date</th>
+  <th class="header_color">Status</th>
+
+  
+  <!-- <th class="header_color">Active User</th> -->
+  <th class="header_color">Action</th>
+</tr>
+<tr *ngFor="let data of tableName2 ;let i = index">
+  <td>{{ i+1 }}</td>
+  <td>{{ data.value.data.subtaskNo}}</td>
+  <td>{{ data.value.data.subtaskTitle }}</td>
+  <td>{{ data.value.data.description }}</td>
+  <td>{{ data.value.data.startDate }}</td>
+
+  <td>{{ data.value.data.endDate }}</td>
+  <td>{{ data.value.data.status }}</td>
+  <!-- <td>{{ data.doc.isActive }}</td> -->
+  <td>
+    <div style="display: flex; align-items: center; gap: 10px;">
+    <img (click)="updateAction(data.value)" src="..//src/assets/edit-icon.png" alt="" width="20px" height="20px" style="cursor: pointer;">
+    <img (click)="delete(data.value._id,data.value._rev)" src="..//src/assets/delete-icon.png" alt="" width="30px" height="30px" style="cursor: pointer;">
+    <img (click)="passParam(data.value)" src="..//src/assets/eye-icon.png" alt="" width="20px" height="20px" style="cursor: pointer;">
+    </div> 
+  </td>
+</tr>
+</table>
