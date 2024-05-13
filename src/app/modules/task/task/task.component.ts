@@ -11,7 +11,9 @@ import { v4 as uuidv4 } from 'uuid';
   styleUrls: ['./task.component.scss']
 })
 export class TaskComponent {
-
+  handleKeyPress($event: KeyboardEvent) {
+  }
+  
   crudForm! : FormGroup;
   tableName1 : any[] = [];
   reviewername : any[] = [];
