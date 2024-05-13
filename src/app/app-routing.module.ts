@@ -9,7 +9,6 @@ const routes: Routes = [
   { path:'signup',loadChildren:()=>import('./modules/signup/signup.module').then(module => module.SignupModule) },
   {  path:'user',loadChildren:()=>import('./modules/user/user.module').then(module => module.UserModule) },
   {  path:'teacher',loadChildren:()=>import('./modules/teacher/teacher.module').then(module => module.TeacherModule) },
-  {  path:'task',loadChildren:()=>import('./modules/task/task.module').then(module => module.TaskModule) },
   {  path:'view_user/:id',loadChildren:()=>import('./modules/viewdata/viewdata.module').then(module => module.ViewdataModule) },
   {  path:'view_task/:id',loadChildren:()=>import('./modules/viewtask/viewtask.module').then(module => module.ViewtaskModule) },
   {  path:'view_teacher/:id',loadChildren:()=>import('./modules/viewteacherdata/viewteacherdata.module').then(module => module.ViewteacherdataModule) },
