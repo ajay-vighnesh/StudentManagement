@@ -7,7 +7,7 @@ const routes: Routes = [
   { path:'studentlogin',loadChildren:()=>import('./modules/studentlogin/studentlogin.module').then(module => module.StudentloginModule) },
   { path:'teacherlogin',loadChildren:()=>import('./modules/teacherlogin/teacherlogin.module').then(module => module.TeacherloginModule) },
   { path:'signup',loadChildren:()=>import('./modules/signup/signup.module').then(module => module.SignupModule) },
-  {  path:'user',loadChildren:()=>import('./modules/user/user.module').then(module => module.UserModule) },
+  {  path:'student',loadChildren:()=>import('./modules/user/user.module').then(module => module.UserModule) },
   {  path:'teacher',loadChildren:()=>import('./modules/teacher/teacher.module').then(module => module.TeacherModule) },
   {  path:'view_user/:id',loadChildren:()=>import('./modules/viewdata/viewdata.module').then(module => module.ViewdataModule) },
   {  path:'view_task/:id',loadChildren:()=>import('./modules/viewtask/viewtask.module').then(module => module.ViewtaskModule) },
