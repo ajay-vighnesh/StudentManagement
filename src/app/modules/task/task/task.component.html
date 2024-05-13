@@ -117,9 +117,9 @@
     <td>{{ data.data.reviewerName }}</td> 
     <td>
       <div style="display: flex; align-items: center; gap: 10px;">
-      <img (click)="updateAction(data)" src="..//src/assets/edit-icon.png" alt="" width="20px" height="20px" style="cursor: pointer;">
-      <img (click)="deletealert(data._id,data._rev)" src="..//src/assets/delete-icon.png" alt="" width="30px" height="30px" style="cursor: pointer;">
-      <img (click)="passParam(data)" src="..//src/assets/eye-icon.png" alt="" width="20px" height="20px" style="cursor: pointer;">
+      <img (click)="updateAction(data)" (keypress.enter)="updateAction(data)" src="..//src/assets/edit-icon.png" alt="" width="20px" height="20px" style="cursor: pointer;">
+      <img (click)="deletealert(data._id,data._rev)" (keypress.enter)="deletealert(data._id,data._rev)" src="..//src/assets/delete-icon.png" alt="" width="30px" height="30px" style="cursor: pointer;">
+      <img (click)="passParam(data)" (keypress.enter)="passParam(data)" src="..//src/assets/eye-icon.png" alt="" width="20px" height="20px" style="cursor: pointer;">
       </div> 
     </td>
   </tr>
