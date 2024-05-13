@@ -24,9 +24,9 @@ export class UserComponent {
 
   constructor(public cf:FormBuilder, public service:CouchService,private route:Router) {
     this.crudForm = this.cf.group({
-      rollno: ["",[Validators.pattern(/^[/d]+$/),Validators.required]],
+      rollno: ["",[Validators.pattern(/^[0-9]+$/),Validators.required]],
       studentname: ["",[Validators.pattern(/^[a-zA-Z]+$/),Validators.required]],
-      classname: ["",[Validators.pattern(/^[/d]+$/),Validators.required]],
+      classname: ["",[Validators.pattern(/^[0-9]+$/),Validators.required]],
       // isActive: true,      
     })
   }

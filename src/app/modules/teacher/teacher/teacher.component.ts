@@ -24,7 +24,7 @@ export class TeacherComponent {
 
   constructor(public cf:FormBuilder, public service:CouchService,private route:Router) {
     this.crudForm = this.cf.group({
-      teacher_id: ["",[Validators.pattern(/^[/d]+$/),Validators.required]],
+      teacher_id: ["",[Validators.pattern(/^[0-9]+$/),Validators.required]],
       teachername: ["",[Validators.pattern(/^[a-zA-Z]+$/),Validators.required]],
       // isActive: true,      
     })
