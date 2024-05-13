@@ -69,13 +69,13 @@
   <td>{{ data.data.classname }}</td>
   <td>
     <div style="display: flex; align-items: center; gap: 10px;">
-    <div (click)="updateAction(data)" (onKeyPress)="updateAction(data)"> 
+    <div (click)="updateAction(data)" (keypress.enter)="updateAction(data)"> 
       <img src="..//src/assets/edit-icon.png" alt="" width="20px" height="20px" style="cursor: pointer;">
     </div>
-    <div (click)="deletealert(data._id,data._rev)" (onKeyPress)="deletealert(data._id,data._rev)">
+    <div (click)="deletealert(data._id,data._rev)" (keypress.enter)="deletealert(data._id,data._rev)">
     <img  src="..//src/assets/delete-icon.png" alt="" width="30px" height="30px" style="cursor: pointer;">
     </div>
-    <div (click)="passParam(data)" (onKeyPress)="passParam(data)">
+    <div (click)="passParam(data)" (keypress.enter)="passParam(data)">
     <img  src="..//src/assets/eye-icon.png" alt="" width="20px" height="20px" style="cursor: pointer;">
     </div>
     </div>
