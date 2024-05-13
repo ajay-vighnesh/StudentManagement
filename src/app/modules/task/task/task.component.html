@@ -103,7 +103,6 @@
     <th class="header_color">Developer</th>
     <th class="header_color">Name</th>
     <th class="header_color">Reviewer</th>
-    <!-- <th class="header_color">Active User</th> -->
     <th class="header_color">Action</th>
   </tr>
   <tr *ngFor="let data of tableName1 ;let i = index">
@@ -116,11 +115,9 @@
     <td>{{ data.data.developerName }}</td>
     <td>{{ data.data.name }}</td>
     <td>{{ data.data.reviewerName }}</td> 
-    <!-- <td>{{ data.doc.isActive }}</td> -->
     <td>
       <div style="display: flex; align-items: center; gap: 10px;">
       <img (click)="updateAction(data)" src="..//src/assets/edit-icon.png" alt="" width="20px" height="20px" style="cursor: pointer;">
-      <!-- <img (click)="delete(data._id,data._rev)" src="..//src/assets/delete-icon.png" alt="" width="30px" height="30px" style="cursor: pointer;"> -->
       <img (click)="deletealert(data._id,data._rev)" src="..//src/assets/delete-icon.png" alt="" width="30px" height="30px" style="cursor: pointer;">
       <img (click)="passParam(data)" src="..//src/assets/eye-icon.png" alt="" width="20px" height="20px" style="cursor: pointer;">
       </div> 
