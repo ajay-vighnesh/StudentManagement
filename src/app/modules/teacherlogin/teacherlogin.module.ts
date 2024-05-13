@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SubtaskComponent } from './subtask/subtask.component';
+import { TeacherloginComponent } from './teacherlogin/teacherlogin.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+
 const routes: Routes = [
-{path:'',component:SubtaskComponent},
+{path:'',component:TeacherloginComponent},
+
 ];
 
 
 
 @NgModule({
   declarations: [
-    SubtaskComponent
+    TeacherloginComponent
   ],
   imports: [
     CommonModule,
@@ -26,4 +28,4 @@ const routes: Routes = [
     RouterModule,
   ]
 })
-export class SubtaskModule { }
+export class TeacherloginModule { }

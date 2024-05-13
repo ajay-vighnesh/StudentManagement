@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TeacherComponent } from './teacher/teacher.component';
+import { SignupComponent } from './signup/signup.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
 const routes: Routes = [
-{path:'',component:TeacherComponent},
+{path:'',component:SignupComponent},
 
 ];
 
 
 @NgModule({
   declarations: [
-    TeacherComponent
+    SignupComponent
   ],
   imports: [
     CommonModule,
@@ -27,8 +27,4 @@ const routes: Routes = [
     RouterModule,
   ]
 })
-export class TeacherModule { 
-  constructor(){
-    console.log("yes")
-  }
-}
+export class SignupModule { }

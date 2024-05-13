@@ -59,6 +59,12 @@ header = {
     const geturl:string = `${this.c_url}/${this.databaseName}/_design/new/_view/${view_name}?key="${user}"`
     return this.http.get(geturl,this.header)
   }
+
+  getsignup(view_name:string,user:string){
+    
+    const geturl:string = `${this.c_url}/${this.databaseName}/_design/new/_view/${view_name}?key="${user}"`
+    return this.http.get(geturl,this.header)
+  }
  
   getsuntaskdata(view_name:string,user:string){
     

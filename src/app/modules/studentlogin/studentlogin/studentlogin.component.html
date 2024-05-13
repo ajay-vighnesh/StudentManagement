@@ -1,0 +1,48 @@
+<div class="home_img">
+    <div class="login-container">
+
+    <div style="border: 1px solid #ccc; padding: 20px; width: 300px; margin: 0 auto; background-color: rgba(255, 255, 255, 0.829);">
+        <h3 style="margin-bottom: 10px;">Student Login</h3>
+<form [formGroup]="crudForm">
+
+    <div style="margin-bottom: 15px;"> 
+        <label for="studentname">Student Name</label>
+        <input type="text" placeholder="Student Name" formControlName="studentname" style="width: 100%;">
+        <div *ngIf="crudForm.get('studentname')?.hasError('pattern')">
+          <p class="text-danger">Student Name is invalid</p>
+        </div>
+        <div *ngIf="crudForm.get('studentname')?.hasError('required') && crudForm.get('studentname')?.touched">
+          <p class="text-danger">Student Name is required</p>
+        </div>
+      </div>
+    <div style="margin-bottom: 15px;">
+        <label for="classname">Class Name</label>
+        <input type="text" placeholder="Class Name" formControlName="classname" style="width: 100%;">
+        <div *ngIf="crudForm.get('classname')?.hasError('pattern')">
+          <p class="text-danger">Class Name is invalid</p>
+        </div>
+        <div *ngIf="crudForm.get('classname')?.hasError('required') && crudForm.get('classname')?.touched">
+          <p class="text-danger">Class Name is required</p>
+        </div>
+      </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="password">Password</label>
+        <input type="text" placeholder="Password" formControlName="password" style="width: 100%;">
+        <div *ngIf="crudForm.get('password')?.hasError('pattern')">
+          <p class="text-danger">Password is invalid</p>
+        </div>
+        <div *ngIf="crudForm.get('password')?.hasError('required') && crudForm.get('password')?.touched">
+          <p class="text-danger">Password is required</p>
+        </div>
+      </div>
+
+      <button type="submit"  style="width: 100%; margin-top: 15px;" (click)="create()">Submit</button>
+
+</form>
+       
+        
+        <!-- <button type="submit" (click)="checkLogin()" style="width: 100%; margin-top: 15px;">Submit</button> -->
+    </div>
+    </div>
+</div>

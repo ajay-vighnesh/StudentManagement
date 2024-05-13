@@ -1,34 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TeacherComponent } from './teacher/teacher.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
 const routes: Routes = [
-{path:'',component:TeacherComponent},
+{path:'',component:DashboardComponent},
 
 ];
 
 
+
 @NgModule({
   declarations: [
-    TeacherComponent
+    DashboardComponent
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
-    ReactiveFormsModule,
-    FormsModule,
-    HttpClientModule,
+    RouterModule.forChild(routes)
   ],
   exports: [
     RouterModule,
   ]
+  
 })
-export class TeacherModule { 
-  constructor(){
-    console.log("yes")
-  }
-}
+export class DashboardModule { }
