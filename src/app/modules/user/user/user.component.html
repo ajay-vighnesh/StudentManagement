@@ -45,12 +45,7 @@
 </form>
 
 
-
-
-
-
 <hr>
-
 
 
 <table>
@@ -59,7 +54,6 @@
   <th class="header_color">Roll No</th>
   <th class="header_color">Student Name</th>
   <th class="header_color">Class Name</th>
-
   <th class="header_color">Action</th>
 </tr>
 <tr *ngFor="let data of tableName let i = index">
@@ -69,13 +63,13 @@
   <td>{{ data.data.classname }}</td>
   <td>
     <div style="display: flex; align-items: center; gap: 10px;">
-    <div (click)="updateAction(data)" (keypress.enter)="updateAction(data)"> 
+    <div (click)="updateAction(data)" (keypress.enter)="updateAction(data)" id="btn"> 
       <img src="..//src/assets/edit-icon.png" alt="" width="20px" height="20px" style="cursor: pointer;">
     </div>
-    <div (click)="deletealert(data._id,data._rev)" (keypress.enter)="deletealert(data._id,data._rev)">
+    <div (click)="deletealert(data._id,data._rev)" (keypress.enter)="deletealert(data._id,data._rev)" id="btn1">
     <img  src="..//src/assets/delete-icon.png" alt="" width="30px" height="30px" style="cursor: pointer;">
     </div>
-    <div (click)="passParam(data)" (keypress.enter)="passParam(data)">
+    <div (click)="passParam(data)" (keypress.enter)="passParam(data)" id="btn2">
     <img  src="..//src/assets/eye-icon.png" alt="" width="20px" height="20px" style="cursor: pointer;">
     </div>
     </div>
