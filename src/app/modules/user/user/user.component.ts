@@ -10,6 +10,8 @@ import { v4 as uuidv4 } from 'uuid';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent {
+  handleKeyPress($event: KeyboardEvent) {
+  }
   crudForm! : FormGroup;
   tableName : any[] = [];
   isEdit:boolean = false;
