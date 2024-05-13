@@ -17,15 +17,13 @@
    
     <td> {{paramValue.data.taskNo}}</td>
     <td>  {{paramValue.data.taskTitle}} </td>
-        <!-- <h1 style="color: green;" *ngIf="paramValue.data.isActive">Active</h1>
-        <h1 style="color: red;" *ngIf="!paramValue.data.isActive">Inactive</h1></td> -->
+       
     <td>  {{paramValue.data.description}}</td>
     <td>  {{paramValue.data.deadLine}}</td>
     <td>  {{paramValue.data.developerName}}</td>
     <td>  {{paramValue.data.name}}</td>
     <td>  {{paramValue.data.reviewerName}}</td>
 
-    <!-- <td>  {{paramValue.isActive}}</td> -->
    
   </tr>
   </table>
@@ -33,7 +31,6 @@
 
 <button [routerLink]="['/task']">Back</button>
 
-<!-- <button [routerLink]="['/task/subtask/id']">Add Subtask</button> -->
 <button (click)="addSubTask(paramValue)">Add Subtask</button>
 
 
