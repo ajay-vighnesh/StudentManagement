@@ -1,5 +1,5 @@
-import { Component,OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators , Form } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CouchService } from 'src/app/services/couch.service';
 import { v4 as uuidv4 } from 'uuid';
@@ -11,6 +11,8 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class UserComponent {
   handleKeyPress($event: KeyboardEvent) {
+    console.log('yes');
+    
   }
   crudForm! : FormGroup;
   tableName : any[] = [];
@@ -22,9 +24,9 @@ export class UserComponent {
 
   constructor(public cf:FormBuilder, public service:CouchService,private route:Router) {
     this.crudForm = this.cf.group({
-      rollno: ["",[Validators.pattern(/^[0-9]+$/),Validators.required]],
+      rollno: ["",[Validators.pattern(/^[/d]+$/),Validators.required]],
       studentname: ["",[Validators.pattern(/^[a-zA-Z]+$/),Validators.required]],
-      classname: ["",[Validators.pattern(/^[0-9]+$/),Validators.required]],
+      classname: ["",[Validators.pattern(/^[/d]+$/),Validators.required]],
       // isActive: true,      
     })
   }

@@ -1,5 +1,5 @@
-import { Component,OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators , Form } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CouchService } from 'src/app/services/couch.service';
 import { v4 as uuidv4 } from 'uuid';

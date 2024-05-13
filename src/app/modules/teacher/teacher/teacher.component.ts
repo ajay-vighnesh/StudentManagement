@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators , Form } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CouchService } from 'src/app/services/couch.service';
 import { v4 as uuidv4 } from 'uuid';
@@ -11,6 +11,8 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class TeacherComponent {
   handleKeyPress($event: KeyboardEvent) {
+    console.log('yes');
+    
   }
   crudForm! : FormGroup;
   tableName : any[] = [];
@@ -22,7 +24,7 @@ export class TeacherComponent {
 
   constructor(public cf:FormBuilder, public service:CouchService,private route:Router) {
     this.crudForm = this.cf.group({
-      teacher_id: ["",[Validators.pattern(/^[0-9]+$/),Validators.required]],
+      teacher_id: ["",[Validators.pattern(/^[/d]+$/),Validators.required]],
       teachername: ["",[Validators.pattern(/^[a-zA-Z]+$/),Validators.required]],
       // isActive: true,      
     })
