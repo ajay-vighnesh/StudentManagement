@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { TeachersidebarComponent } from './teachersidebar/teachersidebar.component';
 
 
-
 @NgModule({
   declarations: [
     TeachersidebarComponent
