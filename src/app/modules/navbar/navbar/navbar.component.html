@@ -1,0 +1,43 @@
+<div style="display: flex; justify-content: space-between; gap: 10px; cursor: pointer;">
+
+<div style="display: flex;">
+  
+    <div  style="display: flex ; gap:10px ; align-items: center;">
+    <img src="../assets/home_icon.png" alt="" width="20px" height="20px">
+   <h3 routerLink='/home'>Home</h3> 
+  </div>
+
+    <div  style="display: flex ; gap:10px ; align-items: center;">
+    <img src="../assets/user-icon.png" alt="" width="35px" height="35px">
+    <h3  routerLink="/student">Student</h3>
+  </div>
+
+    <div style="display: flex ; gap:10px ; align-items: center;">
+    <img src="../assets/task-icon.png" alt="" width="25px" height="25px">
+    <h3  routerLink="/teacher" >Teacher</h3>
+  </div>
+
+    <div style="display: flex ; gap:10px ; align-items: center;">
+    <img src="../assets/task-icon.png" alt="" width="25px" height="25px">
+    <h3  routerLink="/dashboard" >Dashboard</h3>
+  </div>
+
+</div>
+
+
+<div>
+<div class="dropdown">
+  <button class="dropbtn">{{this.name}}</button>
+  <div class="dropdown-content">
+    <button>{{data1.studentname}}</button>
+    <button (click)="signout()">Sign Out</button>
+  </div>
+</div>
+
+</div>
+
+</div>
+  <hr>
+
+
+

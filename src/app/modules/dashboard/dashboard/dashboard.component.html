@@ -1,3 +1,33 @@
-<p>dashboard works!</p>
+<app-navbar></app-navbar>
 
-<p>Welcome to dashboard</p>
+<!-- <div class="container">
+    <aside> 
+      
+        <h3 (click)="profile()">View Profile</h3>
+        <h3 (click)="mark()">View Mark</h3>
+
+       
+    </aside>
+    <p class="aside-p">
+        <ng-container *ngIf="flag">
+
+            <div>lalafjfaj</div>
+             <app-profile></app-profile>
+        </ng-container>
+        
+    </p>
+</div> -->
+
+<app-sidebar></app-sidebar>
+
+<!-- <ng-container *ngIf="flag">
+
+    <div>lalafjfaj</div>
+     <app-profile></app-profile>
+</ng-container> -->
+
+<div class="container">
+    <p class="aside-p">Welcome to dashboard {{couchDbData.data.studentname}}</p>
+    <!-- <p class="aside-p">Welcome {{couchDbData.data.classname}}</p> -->
+
+    </div>

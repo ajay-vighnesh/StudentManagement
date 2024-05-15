@@ -19,6 +19,7 @@ const routes: Routes = [
   ],
   exports: [
     RouterModule,
+    // HomeComponent
   ]
 })
 export class HomeModule { }

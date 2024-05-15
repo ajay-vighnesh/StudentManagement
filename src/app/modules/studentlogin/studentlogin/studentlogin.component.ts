@@ -21,7 +21,7 @@ export class StudentloginComponent {
   constructor(public cf:FormBuilder, public service:CouchService,private route:Router) {
     this.crudForm = this.cf.group({
       studentname: ["",[Validators.pattern(/^[a-zA-Z]+$/),Validators.required]],
-      classname: ["",[Validators.pattern(/^[/d]+$/),Validators.required]],
+      classname: ["",[Validators.pattern(/^[0-9]+$/),Validators.required]],
       password: ["",[Validators.pattern(/^[a-zA-Z0-9!@#$%^&*()_]+$/),Validators.required]],
       // isActive: true,      
     })

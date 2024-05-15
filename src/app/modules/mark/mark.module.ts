@@ -1,21 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TeacherComponent } from './teacher/teacher.component';
+import { MarkComponent } from './mark/mark.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarModule } from '../navbar/navbar.module';
+import { SidebarModule } from '../sidebar/sidebar.module';
 
 
 const routes: Routes = [
-{path:'',component:TeacherComponent},
+// {path:'',component:MarkComponent},
+{path:'mark',component:MarkComponent},
 
 ];
 
 
+
 @NgModule({
   declarations: [
-    TeacherComponent
+    MarkComponent
   ],
   imports: [
     CommonModule,
@@ -23,15 +26,20 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    NavbarModule
+    NavbarModule,
+    SidebarModule
+
   ],
   exports: [
     RouterModule,
-    TeacherComponent
+    MarkComponent,
   ]
 })
-export class TeacherModule { 
+export class MarkModule {
+
   constructor(){
-    console.log("yes")
+    console.log('i am mark');
+    
   }
-}
+
+ }

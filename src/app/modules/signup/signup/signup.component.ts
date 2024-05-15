@@ -1,3 +1,4 @@
+import { query } from '@angular/animations';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -54,19 +55,41 @@ login(){
     console.log(res)
    if(res.rows.length>0){
     if(res.rows[0].value.data.password===this.crudForm.value.password){
-      this.route.navigate(['/dashboard'])
+      this.route.navigate(['/dashboard'],{queryParams:{data:JSON.stringify(res.rows[0].value)},skipLocationChange:true})
     }
     else{
       alert("password is wrong")
     }
 
    }
-   else{
+   else{  
+    this.teacherlogin()
+   }
+    
+})
+}
+
+teacherlogin(){
+  
+  this.service.getteachersignup("teachersignup-view", this.crudForm.value.studentname ).subscribe((res:any)=>{
+    console.log(res)
+   if(res.rows.length>0){
+    if(res.rows[0].value.data.password===this.crudForm.value.password){
+      this.route.navigate(['/teacherdashboard'],{queryParams:{data:JSON.stringify(res.rows[0].value)},skipLocationChange:true})
+    }
+    else{
+      alert("password is wrong")
+    }
+
+   }
+   else{  
     alert("user not found")
     // this.route.navigate(['/home'])
    }
     
 })
 }
+
+
 
 }

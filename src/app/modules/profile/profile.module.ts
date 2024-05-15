@@ -1,21 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TeacherComponent } from './teacher/teacher.component';
+import { ProfileComponent } from './profile/profile.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from '../dashboard/dashboard/dashboard.component';
+import { DashboardModule } from '../dashboard/dashboard.module';
 import { NavbarModule } from '../navbar/navbar.module';
+import { SidebarModule } from '../sidebar/sidebar.module';
 
 
 const routes: Routes = [
-{path:'',component:TeacherComponent},
+  // {path:'',component:ProfileComponent},
+{path:'profile',component:ProfileComponent},
 
 ];
 
 
+
 @NgModule({
   declarations: [
-    TeacherComponent
+    ProfileComponent,
   ],
   imports: [
     CommonModule,
@@ -23,15 +28,19 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    NavbarModule
+    NavbarModule,
+    SidebarModule
+    // DashboardModule
   ],
   exports: [
     RouterModule,
-    TeacherComponent
-  ]
+    ProfileComponent
+  ],
+
+
 })
-export class TeacherModule { 
+export class ProfileModule {
   constructor(){
-    console.log("yes")
+    console.log("i am profile")
   }
-}
+ }

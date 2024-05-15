@@ -33,6 +33,12 @@ header = {
     return this.http.get(readurl,this.header)
   }
 
+  readprofile(view_name:string,user:string){
+    console.log(view_name,user);
+    const readprofileurl:string = `${this.c_url}/${this.databaseName}/_design/new/_view/${view_name}?key="${user}"`
+    return this.http.get(readprofileurl,this.header)
+  }
+
   delete(_id:string,_rev:string){
     const deleteurl:string = `${this.c_url}/${this.databaseName}/${_id}?rev=${_rev}`
     return this.http.delete(deleteurl,this.header)
@@ -49,11 +55,6 @@ header = {
     return this.http.post(searchurl,searchTearm,this.header)
   } 
 
-  // getdata(){
-  //   const geturl:string = `${this.c_url}/${this.databaseName}/_all_docs?include_docs=true`
-  //   return this.http.get(geturl,this.header)
-  // }
-
   getdata(view_name:string,user:string){
     
     const geturl:string = `${this.c_url}/${this.databaseName}/_design/new/_view/${view_name}?key="${user}"`
@@ -61,6 +62,12 @@ header = {
   }
 
   getsignup(view_name:string,user:string){
+    
+    const geturl:string = `${this.c_url}/${this.databaseName}/_design/new/_view/${view_name}?key="${user}"`
+    return this.http.get(geturl,this.header)
+  }
+
+  getteachersignup(view_name:string,user:string){
     
     const geturl:string = `${this.c_url}/${this.databaseName}/_design/new/_view/${view_name}?key="${user}"`
     return this.http.get(geturl,this.header)
@@ -90,12 +97,5 @@ header = {
     return this.http.get(getstaskid,this.header)
   }
 
-
-  // getViewUrl(){
-  //   const url=`${this.c_url}/${this.databaseName}/_design/view/_view/name?key="aakash"`
-  //   this.http.get(url,this.header).subscribe((res:any)=>{
-  //     console.log(res.rows[0].value.rollNumber)
-  //   })
-  // }
 
 }

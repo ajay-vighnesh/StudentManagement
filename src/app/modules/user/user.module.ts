@@ -4,6 +4,7 @@ import { UserComponent } from './user/user.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarModule } from '../navbar/navbar.module';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    NavbarModule
   ],
   exports: [
     RouterModule,

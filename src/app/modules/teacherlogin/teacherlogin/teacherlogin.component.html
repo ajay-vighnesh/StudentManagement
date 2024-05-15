@@ -1,19 +1,48 @@
-<p>teacherlogin works!</p>
+<div class="home_img">
+    <div class="login-container">
 
+    <div style="border: 1px solid #ccc; padding: 20px; width: 300px; margin: 0 auto; background-color: rgba(255, 255, 255, 0.829);">
+        <h3 style="margin-bottom: 10px;">Teacher Login</h3>
+<form [formGroup]="crudForm">
 
-<div>
-    <div>
-        <h4>Teacher Name:</h4>
-        <input type="text">
+    <div style="margin-bottom: 15px;"> 
+        <label for="teachername">Teacher Name</label>
+        <input type="text" placeholder="Teacher Name" formControlName="teachername" style="width: 100%;">
+        <div *ngIf="crudForm.get('teachername')?.hasError('pattern')">
+          <p class="text-danger">Teacher Name is invalid</p>
+        </div>
+        <div *ngIf="crudForm.get('teachername')?.hasError('required') && crudForm.get('teachername')?.touched">
+          <p class="text-danger">Teacher Name is required</p>
+        </div>
+      </div>
+    <div style="margin-bottom: 15px;">
+        <label for="teacherid">Teacher ID</label>
+        <input type="text" placeholder="Teacher ID" formControlName="teacherid" style="width: 100%;">
+        <div *ngIf="crudForm.get('teacherid')?.hasError('pattern')">
+          <p class="text-danger">Teacher ID is invalid</p>
+        </div>
+        <div *ngIf="crudForm.get('teacherid')?.hasError('required') && crudForm.get('teacherid')?.touched">
+          <p class="text-danger">Teacher ID is required</p>
+        </div>
+      </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="password">Password</label>
+        <input type="text" placeholder="Password" formControlName="password" style="width: 100%;">
+        <div *ngIf="crudForm.get('password')?.hasError('pattern')">
+          <p class="text-danger">Password is invalid</p>
+        </div>
+        <div *ngIf="crudForm.get('password')?.hasError('required') && crudForm.get('password')?.touched">
+          <p class="text-danger">Password is required</p>
+        </div>
+      </div>
+
+      <button type="submit"  style="width: 100%; margin-top: 15px;" (click)="create()">Submit</button>
+
+</form>
+       
+        
+        <!-- <button type="submit" (click)="checkLogin()" style="width: 100%; margin-top: 15px;">Submit</button> -->
     </div>
-    <div>
-        <h4>Teacher ID:</h4>
-        <input type="text">
     </div>
-    <div>
-        <h4>Password:</h4>
-        <input type="text">
-    </div>
-    
-    <button type="submit">Submit</button>
 </div>
